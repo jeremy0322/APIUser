@@ -1,0 +1,83 @@
+﻿@model IEnumerable<APIUser.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center>
+    <h2>Get User Details By Email</h2>
+
+    @using (Html.BeginForm("Index", "SearchRecords", FormMethod.Get))
+    {
+        <span>Enter User Email : </span><input type="text" name="search" placeholder="Enter User Email" />
+        <input type="submit" value="Search" name="submit" />
+    }
+    <p></p>
+</center>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            USERNAME
+        </th>
+        <th>
+            EMAIL
+        </th>
+        <th>
+            PASSWORD
+        </th>
+        <th>
+            DOB
+        </th>
+        <th>
+            LAST LOGIN
+        </th>
+        <th>
+            CREATE ON
+        </th>
+        <th>
+            MODIFIED ON
+        </th>
+        <th>
+            STATUS
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastLogin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modifiedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+
+    </tr>
+}
+
+</table>
